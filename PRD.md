@@ -119,6 +119,16 @@ INSERT INTO suggestions (title, category, description) VALUES
 ('Export data to CSV', 'Feature', 'It would be great to export my suggestion history as a CSV file for reporting.');
 ```
 
+---
+
+---
+
+<br>
+
+> ## **Live on Neon — verified: <br> ✅**
+
+![Neon suggestions table showing 5 seeded rows](./docs/neon-suggestions-table.png)
+
 **Explicitly not part of the v1 data model** (see Section 7): `upvotes`, `status`, `comments`, `user_id`/authorship. If added later as a stretch goal, they will require a migration and PRD update — do not let the agent add these columns speculatively now.
 
 ---
