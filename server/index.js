@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const suggestionsRouter = require("./routes/suggestions");
 
 const app = express();
 
@@ -10,6 +11,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.json({ status: "ok" });
 });
+
+app.use(suggestionsRouter);
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
