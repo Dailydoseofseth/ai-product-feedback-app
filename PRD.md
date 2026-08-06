@@ -209,6 +209,7 @@ Creates a new suggestion.
   - `category`: required, must exactly match one of `UI`, `UX`, `Enhancement`, `Bug`, `Feature`.
   - `description`: required, string, trimmed length 10–500.
   - All three fields must be present; reject with `400` if any is missing, empty after trimming, out of length range, or (for category) not in the allowed set.
+  - **The error message must distinguish a blank field from a too-short one**, matching Section 2.2.2's table exactly: a `title`/`description` that is empty after trimming returns `{ "error": "Can't be empty" }`; a non-empty value outside the length range returns the length-range message (`"Title must be between 2 and 100 characters"` / `"Description must be between 10 and 500 characters"`). This applies at the API layer, not just in the frontend's client-side validation — check blank before checking length range.
 - **Success response:** `201 Created`, body is the newly created row:
 
 ```json
