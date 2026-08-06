@@ -43,6 +43,10 @@ router.post("/add-one-suggestion", async (req, res) => {
   const trimmedDescription =
     typeof description === "string" ? description.trim() : "";
 
+  if (trimmedTitle.length === 0) {
+    return res.status(400).json({ error: "Can't be empty" });
+  }
+
   if (trimmedTitle.length < 2 || trimmedTitle.length > 100) {
     return res
       .status(400)
@@ -51,6 +55,10 @@ router.post("/add-one-suggestion", async (req, res) => {
 
   if (!CATEGORIES.includes(category)) {
     return res.status(400).json({ error: "Please select a category" });
+  }
+
+  if (trimmedDescription.length === 0) {
+    return res.status(400).json({ error: "Can't be empty" });
   }
 
   if (trimmedDescription.length < 10 || trimmedDescription.length > 500) {
