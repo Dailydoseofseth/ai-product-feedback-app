@@ -62,7 +62,7 @@ a {
   min-width: 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .page--home {
     flex-direction: row;
     align-items: flex-start;
@@ -71,7 +71,7 @@ a {
 
   .sidebar {
     flex-direction: column;
-    flex: 0 0 255px;
+    flex: 0 0 300px;
     position: sticky;
     top: 24px;
   }
@@ -118,10 +118,10 @@ a {
 .category-filter {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px;
   background: var(--color-white);
   border-radius: var(--radius);
-  padding: 20px;
+  padding: 16px;
   align-content: flex-start;
   margin: 0;
   border: none;
@@ -130,7 +130,7 @@ a {
 .filter-chip {
   border: none;
   border-radius: 23px;
-  padding: 7px 16px;
+  padding: 6px 12px;
   background: var(--color-lavender-bg);
   color: var(--color-indigo);
   font-weight: 600;
@@ -160,6 +160,8 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin: 0;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -215,6 +217,8 @@ a {
 .suggestion-card h3 {
   margin: 0 0 8px;
   font-size: 1.05rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .suggestion-card p {
