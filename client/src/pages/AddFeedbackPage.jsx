@@ -52,7 +52,7 @@ function AddFeedbackPage() {
   };
 
   return (
-    <div className="page page--add-feedback">
+    <main className="page page--add-feedback">
       <Link to="/" className="go-back">
         &lsaquo; Go Back
       </Link>
@@ -129,7 +129,7 @@ function AddFeedbackPage() {
           </button>
         </div>
       </form>
-    </div>
+    </main>
   );
 }
 

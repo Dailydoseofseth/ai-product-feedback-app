@@ -5,6 +5,16 @@ const router = express.Router();
 
 const CATEGORIES = ["UI", "UX", "Enhancement", "Bug", "Feature"];
 
+function sanitizeText(input) {
+  // Strip control/null characters only - the frontend never renders this
+  // text as HTML (React escapes it on output), so stripping < > here would
+  // just corrupt legitimate content like "5 < 10 and 10 > 5" for no real
+  // security benefit.
+  return typeof input === "string"
+    ? input.replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g, "").trim()
+    : "";
+}
+
 router.get("/get-all-suggestions", async (req, res) => {
   try {
     const { rows } = await pool.query(
@@ -39,9 +49,8 @@ router.get("/get-suggestions-by-category/:category", async (req, res) => {
 router.post("/add-one-suggestion", async (req, res) => {
   const { title, category, description } = req.body || {};
 
-  const trimmedTitle = typeof title === "string" ? title.trim() : "";
-  const trimmedDescription =
-    typeof description === "string" ? description.trim() : "";
+  const trimmedTitle = sanitizeText(title);
+  const trimmedDescription = sanitizeText(description);
 
   if (trimmedTitle.length === 0) {
     return res.status(400).json({ error: "Can't be empty" });
