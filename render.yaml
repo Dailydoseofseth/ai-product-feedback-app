@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: product-feedback-api
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: NODE_VERSION
+        value: 20
