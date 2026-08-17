@@ -4,6 +4,10 @@ A full-stack Product Feedback application — customers can view, filter, and su
 
 Built with React (frontend), Node/Express (API), and PostgreSQL (database) as part of an AI-assisted development track. See [PRD.md](./PRD.md) for full requirements.
 
+## AI Usage
+
+Claude (Claude Code) was the only AI agent used throughout this project — PRD authoring, database/API/frontend implementation, bug fixes, the accessibility and security audits, and deployment.
+
 ## Status
 
 Project scaffolding in progress.
